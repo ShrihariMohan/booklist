@@ -19,11 +19,21 @@ const books = [
   },
 ];
 
-const BookList = () => {
+const BookList1 = () => {
+  return (
+    <section className="bookList">
+      {books.map((book, index) => {
+        return <BookListComponent key={index} book={book} />;
+      })}
+    </section>
+  );
+};
+
+const BookList2 = () => {
   return (
     <section className="bookList">
       {books.map((book) => {
-        return <BookListComponent book={book} />;
+        return <BookListComponent2usingSpreadOperator {...book} />;
       })}
     </section>
   );
@@ -66,4 +76,19 @@ const BookListComponent = (props) => {
   );
 };
 
-ReactDom.render(<BookList />, document.getElementById("root"));
+const BookListComponent2usingSpreadOperator = ({
+  img,
+  title,
+  author,
+  rating,
+}) => {
+  return (
+    <div className="book">
+      <img className="bookImage" src={img}></img>
+      <h1 style={{ color: "red", fontSize: "large" }}>{title}</h1>
+      <p> {author} </p>
+      <p> rating : {rating} </p>
+    </div>
+  );
+};
+ReactDom.render(<BookList2 />, document.getElementById("root"));
