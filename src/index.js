@@ -11,24 +11,17 @@ const BookList = () => {
 };
 
 const Book = () => {
+  const h1text = "Harry Potter and the Philosopher's Stone on a variable";
   return (
     <div className="book">
-      <BookImage />
-      <BookTitle />
-      <BookAuthor />
+      <img
+        className="bookImage"
+        src="https://images-eu.ssl-images-amazon.com/images/I/91DtbV%2Bm2QS._AC_UL200_SR200,200_.jpg"
+      ></img>
+      <h1 style={{ color: "red", fontSize: "large" }}>{h1text}</h1>
+      <p> J K Rowling</p>
     </div>
   );
 };
-const BookImage = () => {
-  return (
-    <img
-      className="bookImage"
-      src="https://images-eu.ssl-images-amazon.com/images/I/91DtbV%2Bm2QS._AC_UL200_SR200,200_.jpg"
-    ></img>
-  );
-};
-
-const BookTitle = () => <h1>Harry Potter and the Philosopher's Stone </h1>;
-const BookAuthor = () => <p> J K Rowling</p>;
 
 ReactDom.render(<BookList />, document.getElementById("root"));
